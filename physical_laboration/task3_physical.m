@@ -4,7 +4,7 @@
 bana = 'fyrkant';      % 'fyrkant', 'cirkel' eller 'lutad'
 
 x0   = 0;              % drönarens startposition från Vicon [m]
-y0   = 0;
+y0   = 4;
 yaw0 = 0;              % drönarens start-yaw från Vicon [rad]
 
 z0   = 1.0;            % flyghöjd [m]
