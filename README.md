@@ -43,11 +43,6 @@ Röd streckad linje = referens, blå linje = uppmätt bana (Vicon).
   </tr>
 </table>
 
-<p align="center">
-  <img src="v2/davidochgustav/lab12_axlar.png" width="760"><br>
-  <sub>Referens mot uppmätt för x, y, z och yaw under cirkeln</sub>
-</p>
-
 ### Lutad cirkel (45°)
 
 <p align="center">
