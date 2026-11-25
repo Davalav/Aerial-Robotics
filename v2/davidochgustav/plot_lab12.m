@@ -17,7 +17,7 @@ axis equal; grid on
 xlabel('x [m]'); ylabel('y [m]')
 legend('Uppmätt bana', 'Mål'); title('Bana i XY-planet')
 
-load('fyrkant.mat')      % ger t, a och b
+load('lutad.mat')      % ger t, a och b
 
 figure(3); clf
 plot3(a(:,1), a(:,2), b(:,1), 'r--', 'LineWidth', 1.5); hold on

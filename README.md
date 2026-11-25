@@ -45,10 +45,12 @@ Röd streckad linje = referens, blå linje = uppmätt bana (Vicon).
 
 ### Lutad cirkel (45°)
 
-<p align="center">
-  <img src="v2/davidochgustav/lutad.jpg" width="520"><br>
-  <sub>Bana i XY-planet – uppifrån blir den lutade cirkeln en ellips</sub>
-</p>
+<table>
+  <tr>
+    <td align="center"><img src="v2/davidochgustav/lutad.jpg" width="420"><br><sub>Bana i XY-planet – uppifrån blir den lutade cirkeln en ellips</sub></td>
+    <td align="center"><img src="v2/davidochgustav/lutad_3d.png" width="420"><br><sub>Bana i 3D – cirkeln lutad 45°</sub></td>
+  </tr>
+</table>
 
 ---
 
