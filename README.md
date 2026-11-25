@@ -113,28 +113,43 @@ Röd streckad linje = referens, blå linje = uppmätt bana (Vicon).
 
 <table>
   <tr>
-    <td align="center"><img src="v2/davidochgustav/Fyrkant_plot.jpg" width="420"><br><sub>Bana i XY-planet</sub></td>
     <td align="center"><img src="v2/davidochgustav/fyrkant_3d.png" width="420"><br><sub>Bana i 3D – lyft, fyrkant på 1 m höjd, landning</sub></td>
+    <td align="center"><img src="v2/davidochgustav/Fyrkant_plot.jpg" width="420"><br><sub>Bana i XY-planet</sub></td>
   </tr>
 </table>
+
+<p align="center">
+  <img src="v2/davidochgustav/fyrkant_xyz.png" width="860"><br>
+  <sub>x, y och z över tid. Referensen hoppar till nästa hörn när drönaren är framme (waypoint-logiken).</sub>
+</p>
 
 ### Cirkel
 
 <table>
   <tr>
+    <td align="center"><img src="v2/davidochgustav/circle_3d.png" width="420"><br><sub>Bana i 3D – platt cirkel på 1 m höjd</sub></td>
     <td align="center"><img src="v2/davidochgustav/Cirkel_plot.jpg" width="420"><br><sub>Bana i XY-planet</sub></td>
-    <td align="center"><img src="v2/davidochgustav/cirkel_3d.png" width="420"><br><sub>Bana i 3D</sub></td>
   </tr>
 </table>
+
+<p align="center">
+  <img src="v2/davidochgustav/circle_xyz.png" width="860"><br>
+  <sub>x, y och z över tid. x och y följer en cosinus- och sinuskurva, z ligger still på 1 m.</sub>
+</p>
 
 ### Lutad cirkel (45°)
 
 <table>
   <tr>
-    <td align="center"><img src="v2/davidochgustav/lutad.jpg" width="420"><br><sub>Bana i XY-planet – uppifrån blir den lutade cirkeln en ellips</sub></td>
     <td align="center"><img src="v2/davidochgustav/lutad_3d.png" width="420"><br><sub>Bana i 3D – cirkeln lutad 45°</sub></td>
+    <td align="center"><img src="v2/davidochgustav/lutad.jpg" width="420"><br><sub>Bana i XY-planet – uppifrån blir den lutade cirkeln en ellips</sub></td>
   </tr>
 </table>
+
+<p align="center">
+  <img src="v2/davidochgustav/lutad_xyz.png" width="860"><br>
+  <sub>x, y och z över tid. Här varierar även z, mellan cirka 0.3 och 1.7 m.</sub>
+</p>
 
 ---
 
