@@ -7,17 +7,29 @@ Drönaren flyger tre banor (Task 3): en **fyrkant**, en **cirkel** och en **cirk
 
 ## Regulatorn
 
-Drönarens egen firmware sköter attityden. Ovanpå den ligger en förenklad kaskadreglering i Simulink:
+Drönarens egen firmware sköter attityden. Ovanpå den ligger en förenklad kaskadreglering i Simulink (`export_ros2_template.slx`, ROS 2):
 
 | Styr | Regulator | Formel |
 |---|---|---|
 | Höjd → thrust | PD + feedforward | `T = T0·(1 + 0.42·(z* − z) − 0.35·ż)` |
-| x/y → pitch | P-kaskad (position → hastighet → lutning) | `pitch = 0.25·( cosψ·a + sinψ·b)` |
-| x/y → roll | P-kaskad | `roll = −0.25·(−sinψ·a + cosψ·b)` |
-| Riktning → yaw rate | P | `yaw_rate = 1.5·atan2(sin(ψ*−ψ), cos(ψ*−ψ))` |
+| x/y → pitch | P på positionsfel + hastighetsdämpning | `pitch = 0.3·(e_x − v_x)` |
+| x/y → roll | P på positionsfel + hastighetsdämpning | `roll = −0.4·(e_y − v_y)` |
+| Riktning → yaw rate | P | `yaw_rate = 0.2·atan2(sin(ψ* − ψ), cos(ψ* − ψ))` |
 
-där `a = 0.8·(x* − x) − vx` och `b = 0.8·(y* − y) − vy`.
-Begränsningar: lutning ±0.15 rad, yaw rate ±1 rad/s, thrust 0–60000 PWM, och en Rate Limiter på 0.2 m/s för mjuk start och nödlandning.
+Positionsfelet räknas i drönarens egen ram. Både drönarens position och referensen roteras med `rot2(ψ)ᵀ`:
+
+```
+[e_x; e_y] = rot2(ψ)ᵀ · [x* − x; y* − y]
+           = [ cosψ·(x* − x) + sinψ·(y* − y);
+              −sinψ·(x* − x) + cosψ·(y* − y)]
+```
+
+`v_x` och `v_y` är hastigheten från odometrin. Minustecknet på roll ligger i publishern (Gain −1), eftersom positiv roll lutar drönaren mot −y.
+
+**Begränsningar och enheter**
+- Thrust: `T` begränsas till 0–1 och skickas som `T · 60000` PWM. Med `T0 = 0.71` blir svävthrusten ungefär 42 600 PWM.
+- Pitch och roll: ±1 rad, yaw rate: ±1 rad/s. Alla tre görs om från radianer till grader i publishern.
+- Höjdreferensen går via en NödSwitch, en Rate Limiter (±0.2 m/s) och en begränsning till 0–1.8 m, vilket ger mjuk start och nödlandning.
 
 ---
 
